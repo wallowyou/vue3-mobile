@@ -1,35 +1,30 @@
 <template>
-  <div class="tree">
-      <img src="./assets/avatar.png" />
-      <div>头像-{{prive}}</div>
-      <HelloVue></HelloVue>
+  <div id="nav">
+    <router-link to="/">Home</router-link> |
+    <router-link to="/about">About</router-link>
   </div>
+  <router-view />
 </template>
 
-<script lang="ts">
-import { ref , defineComponent} from 'vue';
-import HelloVue from './components/Hello.vue';
-export default defineComponent({
-  components: {
-    HelloVue
-  },
-  setup(){
-      let prive = ref(123);
-      return {
-          prive
-      }
-  }
-})
-</script>
+<style lang="scss">
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
 
-<style lang="scss" scoped>
-  .tree{
-      width:100px;
-      height: 100px;
-      margin: 0 auto;
+#nav {
+  padding: 30px;
+
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
   }
-  .tree>img{
-      width: 100%;
-      height:100%;
-  }
+}
 </style>

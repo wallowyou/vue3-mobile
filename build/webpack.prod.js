@@ -10,10 +10,10 @@ module.exports = merge(common, {
   module: {
   },
   output: {
-    filename: '[name].[contenthash:8].js',
+    filename: 'js/[name].[contenthash:8].js',
     clean: true,
-    path: path.resolve(__dirname, '../dist/'),
-    assetModuleFilename: "images/[name].[contenthash:8].[ext]"
+    path: path.resolve(__dirname, '../dist'),
+    assetModuleFilename: "img/[name].[contenthash:8].[ext]"
   },
   plugins: [
     new MiniCssExtractPlugin({

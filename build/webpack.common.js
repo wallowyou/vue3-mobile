@@ -8,6 +8,17 @@ const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { VueLoaderPlugin } = require('vue-loader');
 module.exports = {
+  stats: {
+    colors: true,
+    children: false,
+    chunks: false,
+    chunkModules: false,
+    modules: false,
+    builtAt: false,
+    entrypoints: false,
+    assets: false,
+    version: false
+  },
   entry: {
     app: [
       './src/main.ts'
@@ -21,6 +32,13 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.mjs$/,
+        type: 'javascript/auto',
+        include: [
+          /node_modules/
+        ]
+      },
       { test: /\.vue$/, use: 'vue-loader',  exclude: /node_modules/},
       {
         test: /\.[jt]s$/,
@@ -28,7 +46,7 @@ module.exports = {
           loader: 'esbuild-loader',
             options: {
               loader: 'tsx',
-              target: 'es2015'
+              target: 'esnext'
             },
         },
         exclude: /node_modules/,
