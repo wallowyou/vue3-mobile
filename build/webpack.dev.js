@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('path')
 const { merge } = require('webpack-merge')
 const common = require('./webpack.common')
 module.exports = merge(common, {
@@ -7,13 +7,13 @@ module.exports = merge(common, {
   devServer: {
     port: 9000,
     hot: true,
-    open: true,
+    open: true
   },
   module: {},
   output: {
     filename: '[name].js',
     clean: true,
     path: path.resolve(__dirname, '../dist/'),
-    assetModuleFilename: "images/[name].[ext]"
-  },
+    assetModuleFilename: 'images/[name].[ext]'
+  }
 })
