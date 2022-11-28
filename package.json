@@ -1,6 +1,6 @@
 {
   "name": "vue3-mobile",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,10 @@
     "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.js",
     "lint": "eslint --ext .js,.jsx,.vue,.ts,.tsx src --fix",
     "prepare": "husky install",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "release:first": "standard-version -- --first-release",
+    "release": "standard-version",
+    "release:major": "standard-version -- --release-as major"
   },
   "config": {
     "commitizen": {
@@ -16,7 +19,9 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,vue}": ["eslint --fix"]
+    "src/**/*.{js,vue}": [
+      "eslint --fix"
+    ]
   },
   "keywords": [],
   "author": "",
